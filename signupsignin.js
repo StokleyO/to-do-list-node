@@ -1,10 +1,5 @@
-// Sign Up: email address, password (8 charactes, a number, a capital letter, and a symbol) & then password should be confirmed
-// For Sign In: email address they used & password. If email & password match, create a session or JSON Web Token
-userInputEmail = document.getElementById("userInputEmail");
-userInputPassword = document.getElementById("userInputPassword");
 // Create an HTTP Server using express library
 const Joi = require('Joi');
-const jose = require('jose');
 const express = require('express');
 const app = express();
 var sess = {
@@ -48,14 +43,6 @@ app.post('/signup', (req, res) => {
     res.send(accounts);
 });
 
-function createAccount() {
-    const obj = {
-        email: userInputEmail,
-        password: userInputPassword
-    }
-    accounts.push(obj);
-    alert("Here");
-}
 
 app.post('/signin', (req, res) => {
     const data = req.body;
